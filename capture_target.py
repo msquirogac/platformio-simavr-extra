@@ -1,6 +1,6 @@
 Import("env")
 
-env.Append(LINKFLAGS=["-Wl,--undefined=_mmcu,--section-start=.mmcu=0x910000"])
+env.Append(LINKFLAGS=["-Wl,--undefined=_mmcu,--section-start=.mmcu=0x3800"])
 
 def capture_callback(*args, **kwargs):
     try:
@@ -28,4 +28,3 @@ def capture_callback(*args, **kwargs):
 
 capture_alias = env.Alias("capture", "buildprog", capture_callback)
 env.AlwaysBuild(capture_alias)
-
